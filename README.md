@@ -4,18 +4,17 @@ This project is an interactive web application that simulates the behavior of Op
 
 ---
 
-## 1. Arquitectura y Tecnologías
-El sistema está construido bajo una arquitectura cliente-servidor separando estrictamente la lógica matemática de la interfaz visual:
-* **Backend (Lógica):** Desarrollado en **Python** utilizando el framework **FastAPI**. Se encarga de procesar las colas, ejecutar los cálculos matemáticos ciclo por ciclo y devolver los resultados.
-* **Frontend (Vista):** Construido con **HTML5, CSS3 y JavaScript puro**. Realiza peticiones asíncronas a la API y renderiza dinámicamente el diagrama de Gantt con colores y la tabla de resultados.
+## 1. Architecture and Technologies
+The system is built on a client-server architecture, strictly separating mathematical logic from the visual interface:
+* **Backend (Logic):** Developed in **Python** using the **FastAPI** framework. It handles process queues, executes cycle-by-cycle mathematical calculations, and returns the results.
+* **Frontend (View):** Built with **HTML5, CSS3, and vanilla JavaScript**. It makes asynchronous requests to the API and dynamically renders the color-coded Gantt chart and results table.
 
-## 2. Algoritmos Implementados
-* **Ronda (Round Robin - RR):** Algoritmo apropiativo que asigna a cada proceso una porción de tiempo equitativa y fija llamada **Quantum**.
-* **Ronda Egoísta (Selfish Round Robin - SRR):** Variante avanzada que divide a los procesos en dos colas: "Nuevos" y "Aceptados". Utiliza una **Tasa a** y una **Tasa b** para incrementar la prioridad de los procesos a medida que esperan, decidiendo en qué momento los procesos nuevos son aceptados para competir por la CPU.
+## 2. Implemented Algorithms
+* **Round Robin (RR):** A preemptive algorithm that assigns each process an equal and fixed time slice called a **Quantum**.
+* **Selfish Round Robin (SRR):** An advanced variant that divides processes into two queues: "New" and "Accepted". It uses a **Rate a** and **Rate b** to increase the priority of waiting processes, determining exactly when new processes are accepted to compete for the CPU.
 
-## 3. Instalación y Ejecución
-
-1. Clona este repositorio en tu máquina local.
-2. Abre la terminal en la carpeta del proyecto y asegúrate de instalar las dependencias necesarias:
+## 3. Installation and Execution
+1. Clone this repository to your local machine.
+2. Open the terminal in the project folder and install the required dependencies:
    ```bash
    pip install fastapi uvicorn pydantic
