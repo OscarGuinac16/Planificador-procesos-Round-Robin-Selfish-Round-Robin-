@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Procesos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Planificador de Procesos</h1>
+        
+        <div class="controles">
+            <label for="algoritmo">Algoritmo:</label>
+            <select id="algoritmo" onchange="mostrarOcultarControles()">
+                <option value="ronda">Ronda (Round Robin)</option>
+                <option value="ronda_egoista">Ronda Egoísta</option>
+            </select>
+
+            <label for="quantum">Quantum:</label>
+            <input type="number" id="quantum" value="2" min="1" max="20" style="width: 50px;">
+            
+            <!-- Controles exclusivos para Ronda Egoísta, ocultos por defecto -->
+            <span id="controles_egoista" style="display: none;">
+                <label for="tasa_a">Tasa a (Nuevos):</label>
+                <input type="number" id="tasa_a" value="2" min="1" max="10" style="width: 50px;">
+                <label for="tasa_b">Tasa b (Aceptados):</label>
+                <input type="number" id="tasa_b" value="1" min="0" max="10" style="width: 50px;">
+            </span>
+
+            <button onclick="calcular()">Ejecutar Simulación</button>
+        </div>
+
+        <h3>Ingreso de Procesos</h3>
+        <table id="tabla-ingreso">
+            <thead>
+                <tr>
+                    <th>Proceso</th>
+                    <th>T de Llegada</th>
+                    <th>Tiempo de CPU</th>
+                </tr>
+            </thead>
+            <tbody id="body-ingreso">
+                <tr><td>A</td><td><input type="number" value="2" min="0"></td><td><input type="number" value="1" min="1" max="20"></td></tr>
+                <tr><td>B</td><td><input type="number" value="3" min="0"></td><td><input type="number" value="5" min="1" max="20"></td></tr>
+                <tr><td>C</td><td><input type="number" value="0" min="0"></td><td><input type="number" value="4" min="1" max="20"></td></tr>
+                <tr><td>D</td><td><input type="number" value="5" min="0"></td><td><input type="number" value="3" min="1" max="20"></td></tr>
+                <tr><td>E</td><td><input type="number" value="9" min="0"></td><td><input type="number" value="2" min="1" max="20"></td></tr>
+                <tr><td>F</td><td><input type="number" value="7" min="0"></td><td><input type="number" value="4" min="1" max="20"></td></tr>
+                <tr><td>G</td><td><input type="number" value="12" min="0"></td><td><input type="number" value="1" min="1" max="20"></td></tr>
+            </tbody>
+        </table>
+
+        <div id="resultados" style="display: none;">
+            <h3>Resultados de la Ejecución:</h3>
+            <div id="gantt-container" class="gantt"></div>
+
+            <table id="tabla-resultados">
+                <thead>
+                    <tr>
+                        <th>Proceso</th>
+                        <th>T de Llegada</th>
+                        <th>Tiempo de CPU</th>
+                        <th>T Final</th>
+                        <th>T Retorno</th>
+                        <th>T Espera</th>
+                    </tr>
+                </thead>
+                <tbody id="body-resultados"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: right; font-weight: bold;">Promedios:</td>
+                        <td id="prom-retorno" class="promedio"></td>
+                        <td id="prom-espera" class="promedio"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

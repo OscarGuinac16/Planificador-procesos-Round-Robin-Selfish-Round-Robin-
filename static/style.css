@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.controles {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+input, select, button {
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: center;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+th {
+    background-color: #eaeaea;
+}
+.gantt {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #000;
+}
+.gantt-bloque {
+    flex: 1;
+    text-align: center;
+    padding: 5px 0;
+    border-right: 1px solid #000;
+    font-weight: bold;
+}
+.gantt-bloque:last-child {
+    border-right: none;
+}
+.promedio {
+    color: red;
+    font-weight: bold;
+}

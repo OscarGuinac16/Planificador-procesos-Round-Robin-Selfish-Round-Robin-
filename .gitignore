@@ -1,0 +1,22 @@
+# Entornos virtuales (evita subir todo el peso de las librerías)
+venv/
+env/
+.venv/
+
+# Archivos temporales y caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Variables de entorno (por seguridad, si llegas a usarlas)
+.env
+
+# Configuraciones locales de tu editor (Cursor / VS Code)
+.vscode/
+.idea/
+*.swp
+
+# Archivos invisibles del sistema operativo
+Thumbs.db
+.DS_Store
